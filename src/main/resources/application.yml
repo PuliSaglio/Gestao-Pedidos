@@ -1,4 +1,9 @@
 spring:
+  web:
+    resources:
+      static-locations: classpath:/static/
+  thymeleaf:
+    cache: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${PROD_DB_HOST}:${PROD_DB_PORT}/${PROD_DB_NAME}?useTimezone=true&serverTimezone=UTC
