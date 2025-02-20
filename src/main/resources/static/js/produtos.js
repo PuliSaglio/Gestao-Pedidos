@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+const API_BASE_URL = "https://gestao-pedidos-0300afe3141d.herokuapp.com";
+
 function carregarProdutos() {
     fetch(`${API_BASE_URL}/api/v1/produtos`)
         .then(response => response.json())

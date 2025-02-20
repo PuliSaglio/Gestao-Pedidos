@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     carregarClientesMaisAtivos()
 });
 
+const API_BASE_URL = "https://gestao-pedidos-0300afe3141d.herokuapp.com";
+
 function carregarResumoVendas() {
     fetch(`${API_BASE_URL}/api/v1/relatorios/resumo-vendas`)
         .then(response => response.json())
