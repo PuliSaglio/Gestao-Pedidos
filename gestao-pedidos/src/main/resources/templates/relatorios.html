@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <title>Relatórios</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">Gestão de Pedidos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./clientes.html">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./produtos.html">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./pedidos.html">Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./item-pedidos.html">Itens-Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./relatorios.html">Relatórios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="mt-5">Resumo de Vendas</h1>
+
+    <table class="table table-striped mt-3" id="resumoVendasTabela">
+        <thead>
+        <tr>
+            <th>Metrica</th>
+            <th>Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h1 class="mt-5">Pedidos Em Andamento</h1>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID Pedido</th>
+            <th>Nome Cliente</th>
+            <th>Data Pedido</th>
+            <th>Valor Total</th>
+        </tr>
+        </thead>
+        <tbody id="pedidosAndamentoTabela">
+        <!-- Produtos serão carregados aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <h1 class="mt-5">Resumo de Clientes Mais Ativos</h1>
+
+    <table class="table table-striped mt-3" id="resumoClientesAtivosTabela">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Quantidade de Pedidos</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script src="/static/js/relatorios.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

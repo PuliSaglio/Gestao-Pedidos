@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/estilo.css">
+    <title>Gerenciar Produtos</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">Gestão de Pedidos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./clientes.html">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./produtos.html">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./pedidos.html">Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./item-pedidos.html">Itens-Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./relatorios.html">Relatórios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="mt-5">Gerenciar Produtos</h1>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody id="produtosTabela">
+        <!-- Produtos serão carregados aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <h2 class="mt-5">Adicionar Produto / Atualizar</h2>
+    <form id="produtoForm">
+        <div class="mb-3">
+            <label for="produtoId" class="form-label">ID</label>
+            <input type="number" class="form-control" id="produtoId" placeholder="Digite o ID apenas para atualizar">
+        </div>
+        <div class="mb-3">
+            <label for="produtoNome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="produtoNome" required>
+        </div>
+        <div class="mb-3">
+            <label for="produtoPreco" class="form-label">Preço</label>
+            <input type="number" class="form-control" id="produtoPreco" required>
+        </div>
+        <div class="mb-3">
+            <label for="produtoDescricao" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="produtoDescricao" required>
+        </div>
+        <div class="mb-3">
+            <label for="produtoEstoque" class="form-label">Estoque</label>
+            <input type="number" class="form-control" id="produtoEstoque" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-primary" onclick="atualizarProduto()">Atualizar</button>
+    </form>
+</div>
+
+<script src="/static/js/produtos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

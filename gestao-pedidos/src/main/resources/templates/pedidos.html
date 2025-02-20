@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gerenciar Pedidos</title>
+    <link rel="stylesheet" href="/static/css/estilo.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">Gestão de Pedidos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./clientes.html">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./produtos.html">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./pedidos.html">Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./item-pedidos.html">Itens-Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./relatorios.html">Relatórios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="mt-5">Gerenciar Pedidos</h1>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Cliente</th>
+            <th>Data Pedido</th>
+            <th>Status</th>
+            <th>Valor Total</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody id="pedidosTabela">
+        <!-- Pedidos serão carregados aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <h2 class="mt-5">Cadastrar Pedido</h2>
+    <form id="pedidoCadastroForm">
+        <div class="mb-3">
+            <label for="clienteId" class="form-label">ID Cliente</label>
+            <input type="number" class="form-control" id="clienteId" required>
+        </div>
+        <div class="mb-3">
+            <label for="itensPedido" class="form-label">Itens do Pedido</label>
+            <div id="itensPedido">
+                <!-- Itens serão carregados aqui via JavaScript -->
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </form>
+
+    <h2 class="mt-5">Itens Disponíveis</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody id="itensTabela">
+        <!-- Itens serão carregados aqui via JavaScript -->
+        </tbody>
+    </table>
+
+    <h2 class="mt-5">Atualizar</h2>
+    <form id="pedidoAtualizarForm">
+        <div class="mb-3">
+            <label for="pedidoId" class="form-label">ID</label>
+            <input type="number" class="form-control" id="pedidoId" placeholder="Digite o ID apenas para atualizar">
+        </div>
+        <div class="mb-3">
+            <label for="clienteIdAtualizar" class="form-label">ID Cliente</label>
+            <input type="number" class="form-control" id="clienteIdAtualizar" required>
+        </div>
+        <div class="mb-3">
+            <label for="pedidoData" class="form-label">Data Pedido</label>
+            <input type="date" class="form-control" id="pedidoData" required>
+        </div>
+        <div class="mb-3">
+            <label for="pedidoStatus" class="form-label">Status</label>
+            <select id="pedidoStatus" name="status" required>
+                <option value="0">EM ANDAMENTO</option>
+                <option value="1">CANCELADO</option>
+                <option value="2">FINALIZADO</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="pedidoValorTotal" class="form-label">Valor Total</label>
+            <input type="number" class="form-control" id="pedidoValorTotal" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="atualizarPedido()">Atualizar</button>
+    </form>
+
+</div>
+
+<script src="/static/js/pedidos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
