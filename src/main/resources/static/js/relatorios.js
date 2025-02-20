@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function carregarResumoVendas() {
-    fetch("http://localhost:8080/api/v1/relatorios/resumo-vendas")
+    fetch(`${API_BASE_URL}/api/v1/relatorios/resumo-vendas`)
         .then(response => response.json())
         .then(resumo => {
             let tbody = document.getElementById("resumoVendasTabela").querySelector("tbody");
@@ -24,7 +24,7 @@ function carregarResumoVendas() {
 }
 
 function carregarPedidosAndamento(){
-    fetch("http://localhost:8080/api/v1/relatorios/pedidos-em-andamento")
+    fetch(`${API_BASE_URL}/api/v1/relatorios/pedidos-em-andamento`)
         .then(response => response.json())
         .then(pedidos => {
             let tbody = document.getElementById("pedidosAndamentoTabela");
@@ -44,7 +44,7 @@ function carregarPedidosAndamento(){
 }
 
 function carregarClientesMaisAtivos() {
-    fetch("http://localhost:8080/api/v1/relatorios/clientes-mais-ativos")
+    fetch(`${API_BASE_URL}/api/v1/relatorios/clientes-mais-ativos`)
         .then(response => response.json())
         .then(resumo => {
             let tbody = document.getElementById("resumoClientesAtivosTabela").querySelector("tbody");

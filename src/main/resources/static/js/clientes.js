@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function carregarClientes() {
-    fetch("http://localhost:8080/api/v1/cliente")
+    fetch(`${API_BASE_URL}/api/v1/cliente`)
         .then(response => response.json())
         .then(clientes => {
             let tbody = document.getElementById("clientesTabela");
@@ -40,7 +40,7 @@ function cadastrarCliente() {
         endereco: document.getElementById("clienteEndereco").value
     };
 
-    fetch("http://localhost:8080/api/v1/cliente", {
+    fetch(`${API_BASE_URL}/api/v1/cliente`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -61,7 +61,7 @@ function cadastrarCliente() {
 }
 
 function excluirCliente(id) {
-    fetch(`http://localhost:8080/api/v1/cliente/${id}`, {
+    fetch(`${API_BASE_URL}/api/v1/cliente/${id}`, {
         method: "DELETE"
     })
         .then(response => {
@@ -77,7 +77,7 @@ function excluirCliente(id) {
 }
 
 function encontrarCliente(id) {
-    fetch(`http://localhost:8080/api/v1/cliente/${id}`)
+    fetch(`${API_BASE_URL}/api/v1/cliente/${id}`)
         .then(response => response.json())
         .then(cliente => {
             document.getElementById("clienteId").value = cliente.id;
@@ -98,7 +98,7 @@ function atualizarCliente() {
         endereco: document.getElementById("clienteEndereco").value
     };
 
-    fetch(`http://localhost:8080/api/v1/cliente`, {
+    fetch(`${API_BASE_URL}/api/v1/cliente/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

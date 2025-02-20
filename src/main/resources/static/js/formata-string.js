@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function formataString() {
     const string = document.getElementById("string").value;
 
-    fetch("http://localhost:8080/api/v1/processador-vogal", {
+    fetch(`${API_BASE_URL}/api/v1/processador-vogal`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

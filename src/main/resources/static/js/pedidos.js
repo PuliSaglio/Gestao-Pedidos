@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function carregarPedidos() {
-    fetch("http://localhost:8080/api/v1/pedidos")
+    fetch(`${API_BASE_URL}/api/v1/pedidos`)
         .then(response => response.json())
         .then(pedidos => {
             let tbody = document.getElementById("pedidosTabela");
@@ -34,7 +34,7 @@ function carregarPedidos() {
 }
 
 function carregarItens() {
-    fetch("http://localhost:8080/api/v1/produtos")
+    fetch(`${API_BASE_URL}/api/v1/produtos`)
         .then(response => response.json())
         .then(produtos => {
             let tbody = document.getElementById("itensTabela");
@@ -77,7 +77,7 @@ function cadastrarPedido() {
         itens: itens
     };
 
-    fetch("http://localhost:8080/api/v1/pedidos", {
+    fetch(`${API_BASE_URL}/api/v1/pedidos`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -100,7 +100,7 @@ function cadastrarPedido() {
 
 
 function excluirPedido(id) {
-    fetch(`http://localhost:8080/api/v1/pedidos/${id}`, {
+    fetch(`${API_BASE_URL}/api/v1/pedidos/${id}`, {
         method: "DELETE"
     })
         .then(response => {
@@ -116,7 +116,7 @@ function excluirPedido(id) {
 }
 
 function encontrarPedido(id) {
-    fetch(`http://localhost:8080/api/v1/pedidos/${id}`)
+    fetch(`${API_BASE_URL}/api/v1/pedidos/${id}`)
         .then(response => response.json())
         .then(pedido => {
             document.getElementById("pedidoId").value = pedido.id;
@@ -137,7 +137,7 @@ function atualizarPedido() {
         valorTotal: document.getElementById("pedidoValorTotal").value
     };
 
-    fetch(`http://localhost:8080/api/v1/pedidos`, {
+    fetch(`${API_BASE_URL}/api/v1/pedidos`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
