@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const API_BASE_URL = "https://gestao-pedidos-0300afe3141d.herokuapp.com";
 
 function carregarResumoVendas() {
-    fetch(`${API_BASE_URL}/api/v1/relatorios/resumo-vendas`)
+    fetch(`http://localhost:8080/api/v1/relatorios/resumo-vendas`)
         .then(response => response.json())
         .then(resumo => {
             let tbody = document.getElementById("resumoVendasTabela").querySelector("tbody");
@@ -26,7 +26,7 @@ function carregarResumoVendas() {
 }
 
 function carregarPedidosAndamento(){
-    fetch(`${API_BASE_URL}/api/v1/relatorios/pedidos-em-andamento`)
+    fetch(`http://localhost:8080/api/v1/relatorios/pedidos-em-andamento`)
         .then(response => response.json())
         .then(pedidos => {
             let tbody = document.getElementById("pedidosAndamentoTabela");
@@ -46,7 +46,7 @@ function carregarPedidosAndamento(){
 }
 
 function carregarClientesMaisAtivos() {
-    fetch(`${API_BASE_URL}/api/v1/relatorios/clientes-mais-ativos`)
+    fetch(`http://localhost:8080/api/v1/relatorios/clientes-mais-ativos`)
         .then(response => response.json())
         .then(resumo => {
             let tbody = document.getElementById("resumoClientesAtivosTabela").querySelector("tbody");

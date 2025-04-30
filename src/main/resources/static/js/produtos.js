@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const API_BASE_URL = "https://gestao-pedidos-0300afe3141d.herokuapp.com";
 
 function carregarProdutos() {
-    fetch(`${API_BASE_URL}/api/v1/produtos`)
+    fetch(`http://localhost:8080/api/v1/produtos`)
         .then(response => response.json())
         .then(produtos => {
             let tbody = document.getElementById("produtosTabela");
@@ -42,7 +42,7 @@ function cadastrarProduto() {
         estoque: document.getElementById("produtoEstoque").value
     };
 
-    fetch(`${API_BASE_URL}/api/v1/produtos`, {
+    fetch(`http://localhost:8080/api/v1/produtos`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -63,7 +63,7 @@ function cadastrarProduto() {
 }
 
 function excluirProduto(id) {
-    fetch(`${API_BASE_URL}/api/v1/produtos/${id}`, {
+    fetch(`http://localhost:8080/api/v1/produtos/${id}`, {
         method: "DELETE"
     })
         .then(response => {
@@ -79,7 +79,7 @@ function excluirProduto(id) {
 }
 
 function encontrarProduto(id) {
-    fetch(`${API_BASE_URL}/api/v1/produtos/${id}`)
+    fetch(`http://localhost:8080/api/v1/produtos/${id}`)
         .then(response => response.json())
         .then(produto => {
             document.getElementById("produtoId").value = produto.id;
@@ -100,7 +100,7 @@ function atualizarProduto() {
         estoque: document.getElementById("produtoEstoque").value
     };
 
-    fetch(`${API_BASE_URL}/api/v1/produtos`, {
+    fetch(`http://localhost:8080/api/v1/produtos`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

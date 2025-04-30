@@ -1,5 +1,6 @@
 package com.puli.gestao_pedidos.services;
 
+import com.puli.gestao_pedidos.DTO.ResumoVendasDTO;
 import com.puli.gestao_pedidos.model.Pedido;
 import com.puli.gestao_pedidos.repositories.PedidoRepository;
 import org.apache.commons.logging.Log;
@@ -7,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,15 +24,16 @@ public class RelatorioService {
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    public Map<String, Object> getResumoVendas() {
+    public ResumoVendasDTO getResumoVendas() {
         logger.info("Gerando resumo de vendas");
         Object[] result = (Object[]) pedidoRepository.getResumoVendas()[0];
-        Map<String, Object> resumo = new HashMap<>();
-        resumo.put("Total Pedidos", result[0]);
-        resumo.put("Total Faturado", result[1]);
-        resumo.put("Total Produtos Vendidos", result[2]);
-        return resumo;
+        return new ResumoVendasDTO(
+                (Long) result[0],       // totalPedidos
+                (BigDecimal) result[1], // totalFaturado
+                (BigDecimal) result[2]     // totalProdutosVendidos
+        );
     }
+
 
     public List<Pedido> findPedidosEmAndamento() {
         logger.info("Buscando pedidos em andamento");

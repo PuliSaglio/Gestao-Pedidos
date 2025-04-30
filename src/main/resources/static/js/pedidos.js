@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const API_BASE_URL = "https://gestao-pedidos-0300afe3141d.herokuapp.com";
 
 function carregarPedidos() {
-    fetch(`${API_BASE_URL}/api/v1/pedidos`)
+    fetch(`http://localhost:8080/api/v1/pedidos`)
         .then(response => response.json())
         .then(pedidos => {
             let tbody = document.getElementById("pedidosTabela");
@@ -36,7 +36,7 @@ function carregarPedidos() {
 }
 
 function carregarItens() {
-    fetch(`${API_BASE_URL}/api/v1/produtos`)
+    fetch(`http://localhost:8080/api/v1/produtos`)
         .then(response => response.json())
         .then(produtos => {
             let tbody = document.getElementById("itensTabela");
@@ -79,7 +79,7 @@ function cadastrarPedido() {
         itens: itens
     };
 
-    fetch(`${API_BASE_URL}/api/v1/pedidos`, {
+    fetch(`http://localhost:8080/api/v1/pedidos`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -102,7 +102,7 @@ function cadastrarPedido() {
 
 
 function excluirPedido(id) {
-    fetch(`${API_BASE_URL}/api/v1/pedidos/${id}`, {
+    fetch(`http://localhost:8080/api/v1/pedidos/${id}`, {
         method: "DELETE"
     })
         .then(response => {
@@ -118,7 +118,7 @@ function excluirPedido(id) {
 }
 
 function encontrarPedido(id) {
-    fetch(`${API_BASE_URL}/api/v1/pedidos/${id}`)
+    fetch(`http://localhost:8080/api/v1/pedidos/${id}`)
         .then(response => response.json())
         .then(pedido => {
             document.getElementById("pedidoId").value = pedido.id;
@@ -139,7 +139,7 @@ function atualizarPedido() {
         valorTotal: document.getElementById("pedidoValorTotal").value
     };
 
-    fetch(`${API_BASE_URL}/api/v1/pedidos`, {
+    fetch(`http://localhost:8080/api/v1/pedidos`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

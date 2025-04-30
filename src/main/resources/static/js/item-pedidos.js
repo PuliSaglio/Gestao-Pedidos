@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const API_BASE_URL = "https://gestao-pedidos-0300afe3141d.herokuapp.com";
 
 function carregarItemPedidos() {
-    fetch(`${API_BASE_URL}/api/v1/pedido-produtos`)
+    fetch(`http://localhost:8080/api/v1/pedido-produtos`)
         .then(response => response.json())
         .then(itemPedidos => {
             let tbody = document.getElementById("item-pedidosTabela");
@@ -29,7 +29,7 @@ function carregarItemPedidos() {
 }
 
 function excluirItemPedidos(id) {
-    fetch(`${API_BASE_URL}/api/v1/pedido-produtos/${id}`, {
+    fetch(`http://localhost:8080/api/v1/pedido-produtos/${id}`, {
         method: "DELETE"
     })
         .then(response => {
