@@ -32,6 +32,7 @@ A aplicação gera relatórios em formato de tabelas, contendo:
 - **Front-end**: HTML, CSS, Bootstrap, JS
 
 ## 📁 Organização do Projeto
+```
 ├── Configuração do Projeto
 │   ├── .gitattributes / .gitignore
 │   ├── mvnw / mvnw.cmd (scripts wrapper do Maven)
@@ -61,4 +62,4 @@ A aplicação gera relatórios em formato de tabelas, contendo:
 ├── Testes
 │   └── src/test/java/com/puli/gestao_pedidos
 │       └── GestaoPedidosApplicationTests.java
-
+```
