@@ -1,48 +1,64 @@
-## Tarefa 1: Desenvolver uma API
+# 📦 Sistema de Gestão de Pedidos – Aplicação Web
 
-Você deverá desenvolver uma API (Restful) simples que receba uma requisição HTTP com uma string, e encontre o primeiro caractere Vogal, após uma consoante, onde a mesma é antecessora a uma vogal e que não se repita na string.
+## 📝 Descrição
 
-Premissas:
+Esta aplicação Web foi desenvolvida para atender às necessidades do setor de vendas da empresa, permitindo o gerenciamento de pedidos realizados por clientes e facilitando o acompanhamento e análise das vendas.
 
-Não será possível reiniciar o fluxo da leitura da string.
-Na tarefa 1 não poderá ser utilizado nenhuma lib, apenas código nativo na identificação da vogal.
+## 🚀 Funcionalidades
 
-Exemplo:
+### ✅ Gerenciamento de Pedidos
+- Cadastro, edição e exclusão de pedidos.
+- Inclusão de múltiplos produtos por pedido, com definição de quantidade e cálculo do valor total.
+- Acompanhamento do status dos pedidos: **"Em andamento"**, **"Finalizado"**, **"Cancelado"**.
 
-Input: aAbBABacafe
-Output: e
+### 📊 Geração de Relatórios
+A aplicação gera relatórios em formato de tabelas, contendo:
 
-No exemplo, ‘e’ é o primeiro caractere Vogal da stream que não se repete após a primeira Consoante ‘f’ o qual tem uma vogal ‘a’ como antecessora.
+- **Resumo das Vendas**:
+  - Total de pedidos realizados.
+  - Valor total faturado.
+  - Quantidade total de produtos vendidos.
 
-E o resultado do processamento deverá ser igual à:
-```json
-{
-  "string": " aAbBABacafe",
-  "vogal": "e",
-  "tempoTotal": "10ms"
-}
-```
+- **Pedidos Pendentes**:
+  - Listagem completa dos pedidos com status "Em andamento".
 
-## Tarefa 2: Criar uma aplicação Web
+- **Clientes Mais Ativos**:
+  - Relação dos clientes que mais realizaram pedidos.
 
-O setor de vendas da empresa precisa de uma ferramenta para gerenciar os pedidos realizados pelos clientes e facilitar o acompanhamento das vendas. Seu objetivo será desenvolver uma aplicação Web para atender a essa necessidade.
+## 🛠️ Tecnologias Utilizadas
 
-A aplicação deverá permitir que os vendedores possam:
+- **Back-end**: Java + Spring Boot
+- **Banco de Dados**: MySQL
+- **Front-end**: HTML, CSS, Bootstrap, JS
 
-- Cadastrar e gerenciar pedidos, incluindo os produtos, quantidade e valor total.
-- Acompanhar o status dos pedidos (Exemplo: "Em andamento", "Finalizado", "Cancelado").
-- Gerar relatórios para facilitar a análise das vendas. O relatório deverá conter os seguintes dados em tabelas:
-   - Resumo das Vendas: Total de pedidos realizados, valor total faturado e quantidade total de produtos vendidos.
-   - Pedidos Pendentes: Listagem dos pedidos que ainda estão em andamento.
-   - Clientes Mais Ativos: Listagem dos clientes que mais realizaram pedidos.
+## 📁 Organização do Projeto
+├── Configuração do Projeto
+│   ├── .gitattributes / .gitignore
+│   ├── mvnw / mvnw.cmd (scripts wrapper do Maven)
+│   ├── pom.xml (configuração do Maven)
+│   ├── system.properties
+│   └── README.md
 
+├── Wrapper Maven
+│   └── .mvn/wrapper/maven-wrapper.properties
 
-**Obs:** As tarefas 1 e 2 deverão ser desenvolvidas dentro da mesma aplicação Web.
+├── Código Fonte
+│   └── src/main
+│       ├── java/com/puli/gestao_pedidos
+│       │   ├── DTO (objetos de transferência de dados)
+│       │   ├── config (configurações como CORS)
+│       │   ├── controllers (controladores das rotas)
+│       │   ├── exceptions (tratamento de exceções)
+│       │   ├── model (entidades do sistema)
+│       │   ├── repositories (interfaces JPA)
+│       │   └── services (regras de negócio)
+│       └── resources
+│           ├── application.yml (configuração da aplicação)
+│           ├── db/migration (scripts Flyway para criação/população do BD)
+│           ├── static (arquivos estáticos: CSS, JS)
+│           └── templates (páginas HTML)
 
-## Entrega e Avaliação
-- As Tarefas 1 e 2 devem ser desenvolvidas dentro da mesma aplicação Web.
-- A modelagem do banco de dados, organização do código, estrutura do repositório e interface gráfica serão avaliados.
-- A aplicação deve ser hospedada na nuvem e as instruções de acesso a aplicação devem ser enviadas por e-mail.
-- O candidato deve enviar o link do repositório contendo o código-fonte da solução.
-
+├── Testes
+│   └── src/test/java/com/puli/gestao_pedidos
+│       └── GestaoPedidosApplicationTests.java
 
